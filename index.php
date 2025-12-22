@@ -16,28 +16,48 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php?page=home">Home</a>
+                            <a class="nav-link" href="index.php?page=home">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=mahasiswa">Mahasiswa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=pengguna">Data Pengguna</a>
+                            <a class="nav-link" href="index.php?page=prodi">Program Studi</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="container my-4">
-            <?php  
-            $page = isset($_GET['page']) ? ($_GET['page']) : 'home';
-            if($page == 'home') include 'home.php';
-            if($page == 'mahasiswa') include 'list.php';
-            if($page == 'create') include 'create.php';
-            if($page == 'update') include 'update.php';
-            
-            ?>
-            
+            <?php
+            $page = $_GET['page'] ?? 'home';
+
+            switch ($page) {
+                case 'home':
+                    include 'home.php';
+                    break;
+                case 'mahasiswa':
+                    include 'Mahasiswa/list.php';
+                    break;
+                case 'mahasiswa_create':
+                    include 'Mahasiswa/create.php';
+                    break;
+                case 'mahasiswa_update':
+                    include 'Mahasiswa/update.php';
+                    break;
+                case 'prodi':
+                    include 'program_studi/list.php';
+                    break;
+                case 'prodi_create':
+                    include 'program_studi/create.php';
+                    break;
+                case 'prodi_update':
+                    include 'program_studi/update.php';
+                    break;
+                default:
+                    include 'home.php';
+            }
+            ?>    
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
