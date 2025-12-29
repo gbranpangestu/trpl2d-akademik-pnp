@@ -1,3 +1,13 @@
+<?php  
+// session | cookies
+session_start();
+//cek login sudah atau belum
+if(!isset($_SESSION['login'])) {
+    header("Location:login.php");
+    exit;
+}
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -25,8 +35,10 @@
                             <a class="nav-link" href="index.php?page=prodi">Program Studi</a>
                         </li>
                     </ul>
+                    <div class="ms-auto">
+                        <a href="logout.php" class="btn btn-outline-danger" onclick="return confirm('Yakin ingin logout?')">Logout</a>
+                    </div>
                 </div>
-            </div>
         </nav>
         <div class="container my-4">
             <?php
