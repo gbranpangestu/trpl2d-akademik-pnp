@@ -1,5 +1,5 @@
 <h1>List Data Program Studi</h1>
-    <a href = 'index.php?page=prodi_create' class = "btn btn-info">Input Program Studi</a>
+    <a href = 'index.php?page=prodi_create' class = "btn btn-primary">Input Program Studi</a>
     <table class="table table-striped">
         <thead>
             <tr>

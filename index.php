@@ -15,9 +15,10 @@ if(!isset($_SESSION['login'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Akademik</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;" data-bs-theme="light">
+        <nav class="navbar navbar-expand-lg" style="background-color: #007bff;" data-bs-theme="dark">
             <div class="container">
                 <a class="navbar-brand" href="#"><b>Akademik</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,9 +35,13 @@ if(!isset($_SESSION['login'])) {
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=prodi">Program Studi</a>
                         </li>
+                
                     </ul>
-                    <div class="ms-auto">
-                        <a href="logout.php" class="btn btn-outline-danger" onclick="return confirm('Yakin ingin logout?')">Logout</a>
+                    <div class="ms-auto d-flex align-items-center">
+                        <a class="nav-link d-flex align-items-center me-3" href="index.php?page=profil">
+                        <i class="bi bi-person-circle me-1"></i> <?= $_SESSION['nama_lengkap']; ?>
+                        </a>
+                        <a href="logout.php"class="btn btn-outline-danger"onclick="return confirm('Yakin ingin logout?')">Logout</a>
                     </div>
                 </div>
         </nav>
@@ -65,6 +70,9 @@ if(!isset($_SESSION['login'])) {
                     break;
                 case 'prodi_update':
                     include 'program_studi/update.php';
+                    break;
+                case 'profil':
+                    include 'profile_edit.php';
                     break;
                 default:
                     include 'home.php';

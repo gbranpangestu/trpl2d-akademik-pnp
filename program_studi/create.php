@@ -21,7 +21,7 @@
         <textarea class="form-control" id="keterangan" rows="3" name="keterangan"></textarea>
     </div>
     <div class="d-flex gap-2">
-        <input type="submit" class="btn btn-info btn-md" name="submit_prodi">
+        <input type="submit" class="btn btn-primary btn-md" name="submit_prodi">
         <input type="reset" class="btn btn-secondary btn-md" name="reset">
         <a href = 'index.php?page=prodi' class = "btn btn-dark btn-md ms-auto">Lihat Data</a>
     </div>

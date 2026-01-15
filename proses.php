@@ -104,3 +104,44 @@ elseif (isset($_POST['Update_prodi'])) {
         echo "Maaf, data gagal diubah";
     }
 }
+
+// =====================
+// EDIT PROFIL
+// =====================
+elseif (isset($_POST['update_profil'])) {
+
+    session_start();
+    require 'koneksi.php';
+
+    $email = $_SESSION['email'];
+    $nama  = $_POST['nama_lengkap'];
+    $pass  = $_POST['password'];
+
+    // VALIDASI
+    if (empty($nama)) {
+        header("Location: index.php?page=profil&error=nama");
+        exit;
+    }
+
+    if (!empty($pass) && strlen($pass) < 6) {
+        header("Location: index.php?page=profil&error=password");
+        exit;
+    }
+
+    // UPDATE
+    if (!empty($pass)) {
+        $pass = md5($pass);
+        $update = $db->query("UPDATE pengguna SET nama_lengkap='$nama', password='$pass' WHERE email='$email'" );
+    } else {
+        $update = $db->query("UPDATE pengguna  SET nama_lengkap='$nama' WHERE email='$email'" );
+    }
+
+    if ($update) {
+        $_SESSION['nama_lengkap'] = $nama;
+        header("Location: index.php?page=home");
+        exit;
+    } else {
+        echo "Gagal update profil";
+    }
+}
+

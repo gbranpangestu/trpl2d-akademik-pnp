@@ -34,7 +34,7 @@ $data = mysqli_fetch_array($edit);
         <textarea class="form-control" name="keterangan" rows="4"><?php echo $data['keterangan']; ?></textarea>
     </div>
 
-    <input type="submit" name="Update_prodi" class="btn btn-info btn-md" value="Update">
+    <input type="submit" name="Update_prodi" class="btn btn-primary btn-md" value="Update">
     <a href="index.php?page=prodi" class="btn btn-secondary btn-md">Kembali</a>
 
 
